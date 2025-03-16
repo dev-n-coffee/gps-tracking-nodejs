@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPS Tracker</title>
+</head>
+<body>
+  <script>
+  // (A) RANDOM ID 1 TO 100
+  var id = Math.floor(Math.random() * 100) + 1;
+
+  // (B) GPS TRACKER
+  const tracker = () => {
+    navigator.geolocation.getCurrentPosition(
+      // (B1) ON SUCCESS
+      (pos) => {
+        // (B1-1) COLLECT DATA
+        let data = new FormData();
+        data.append("id", id);
+        data.append("lat", pos.coords.latitude);
+        data.append("lng", pos.coords.longitude);
+        console.log("Sending...", pos.coords);
+
+        // (B1-2) SEND TO API ENDPOINT
+        fetch("/set", {
+          method: "POST",
+          body: data
+        })
+        .then(res => res.json())
+        .then(res => {
+          console.log(res, new Date().toLocaleTimeString());
+          setTimeout(tracker, 3000); // loop every 3 secs
+        })
+        .catch(err => console.error(err));
+      },
+
+      // (B2) ON FAIL
+      err => console.error(err),
+
+      // (B3) GPS SETTINGS - OPTIONAL
+      {
+        enableHighAccuracy: true,
+        timeout: 2500,
+        maximumAge: 0
+      }
+    );
+  };
+
+  // (C) GO!
+  window.addEventListener("load", tracker);
+  </script>
+</body>
+</html>
