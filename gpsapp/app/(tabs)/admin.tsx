@@ -1,7 +1,7 @@
 // (A) IMPORTS
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { useIsFocused } from '@react-navigation/native';
+import { useIsFocused } from "@react-navigation/native";
 
 // (B) COMPONENT - DATA ROW
 const Row = (data : {

@@ -1,19 +1,26 @@
 ## SIMPLE NODEJS GPS TRACKING SYSTEM EXAMPLE
-YouTube Tutorial - https://youtu.be/@TODO
+YouTube Tutorial - https://youtu.be/KpEX4QQHxLM
 
-Written Tutorial - https://devncoffee.com/@TODO/
+Written Tutorial - https://devncoffee.com/gps-tracking-system-with-nodejs/
 
 ## SETUP
 Git clone or unzip into your project folder
+
 cd your-project-folder
+
 npm install
+
 npm start
+
 open http://localhost:8888/track and http://localhost:8888/admin in the browser
 
 ## DUMMY REACT NATIVE APP
 npx create-expo-app@latest 
+
 cd your-app-folder
+
 npm install expo-location
+
 move your-project-folder/gpsapp/apps/(tabs) to your-app-folder/gpsapp/apps/(tabs)
 
 ## LICENSE
